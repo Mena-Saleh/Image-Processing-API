@@ -13,6 +13,7 @@ This project presents a simple API that can be used to resize images through the
 
 ## Usage
 
+- The node_modules folder was ignored in the making of this repository because of its massive size, so in order to make use of the scripts and the packages, you have to install the required packages using npm i packagename command. Packages can be found in the package.json file.
 
 - Endpoints structure
 
