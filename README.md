@@ -13,6 +13,7 @@ This project presents a simple API that can be used to resize images through the
 
 ## Usage
 
+- The node_modules folder was ignored in the making of this repository because of its massive size, so in order to make use of the scripts and the packages, you have to install the required packages using npm i packagename command. Packages can be found in the package.json file.
 
 - Endpoints structure
 
@@ -69,7 +70,9 @@ This is a list of the dependencies and scripts that were used to power this node
 
 ## Copyrights And Acknowledgements
 
-    The source code for this project is done entirely by me, without any help of other parties. This code was written as a submission for the Image Processing API project for the Udacity Advanced full stack developer nanodegree program.
+    The source code for this project is done entirely by me, without any help of other parties. 
+    This code was written as a submission for the Image Processing API project for the 
+    Udacity Advanced full stack developer nanodegree program.
 
     - About The Author
         - Name: Mena Ashraf Mikhael Saleh
