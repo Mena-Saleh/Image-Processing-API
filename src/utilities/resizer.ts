@@ -4,37 +4,44 @@ import fs from 'fs';
 import path from 'path';
 
 //Function that resizes image using sharp.
-const resizeImage = async (
+const resizeImage = (
   filename: string,
   width: number,
   height: number
-): Promise<void> => {
-  //Get pathes for input and out (works in TS or JS and also cross platform.
-  const sourcePath: fs.PathLike = path.join(
-    __dirname,
-    '..',
-    '..',
-    'images',
-    filename + '.jpg'
-  );
-  const outputPath: fs.PathLike = path.join(
-    __dirname,
-    '..',
-    '..',
-    'images',
-    'resized'
-  );
-  //Check if directory exists, and make it if it doesn't.
-  if (!fs.existsSync(outputPath)) {
-    await fs.mkdirSync(outputPath);
-  }
+): Promise<string> => {
+  return new Promise((resolve , reject) => {
+    //Get pathes for input and out (works in TS or JS and also cross platform.
+    const sourcePath: fs.PathLike = path.join(
+      __dirname,
+      '..',
+      '..',
+      'images',
+      filename + '.jpg'
+    );
+    const outputPath: fs.PathLike = path.join(
+      __dirname,
+      '..',
+      '..',
+      'images',
+      'resized'
+    );
+    //Check if directory exists, and make it if it doesn't.
+    if (!fs.existsSync(outputPath)) {
+      fs.mkdirSync(outputPath);
+    }
 
-  //Await the modification process of the image and catch any errors.
-  await sharp(sourcePath)
-    .resize(width, height)
-    .toFile(path.join(outputPath, filename + '.jpg'), (err) => {
-      if (err != null) console.log(err);
-    });
+    //Await the modification process of the image and catch any errors.
+    try {
+      sharp(sourcePath)
+        .resize(width, height)
+        .toFile(path.join(outputPath, filename + width + 'x' + height + '.jpg'))
+        .then((): void => {
+          resolve('success');
+        });
+    } catch (error) {
+      reject(error as string);
+    }
+  });
 };
 
 //Exports

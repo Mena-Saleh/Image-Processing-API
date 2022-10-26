@@ -5,7 +5,7 @@ import images from './api/Images';
 const routes = express.Router();
 
 //Home route
-routes.get('/', (req, res) => {
+routes.get('/', (req: express.Request, res: express.Response): void => {
   res.send('This is the home page, nothing can be found here!');
   res.status(200);
 });

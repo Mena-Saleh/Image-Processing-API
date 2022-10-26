@@ -127,4 +127,16 @@ describe('Image Processing API test', function () {
             }
         });
     }); });
+    it('Passing a correct filename and with and height that are not numbers.', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var res;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, req.get('/api/images?filename=santamonica&height=hello&width=testing')];
+                case 1:
+                    res = _a.sent();
+                    expect(res.status).toBe(400);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
 });

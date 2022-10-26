@@ -44,4 +44,10 @@ describe('Image Processing API test', () => {
     const res = await req.get('/api/images?filename=santamonica&height=100');
     expect(res.status).toBe(400);
   });
+  it('Passing a correct filename and with and height that are not numbers.', async () => {
+    const res = await req.get(
+      '/api/images?filename=santamonica&height=hello&width=testing'
+    );
+    expect(res.status).toBe(400);
+  });
 });
