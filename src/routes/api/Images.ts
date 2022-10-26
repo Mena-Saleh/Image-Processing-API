@@ -97,7 +97,7 @@ images.get(
 
           //there already exists a cached image, just retrieve it without using sharp
           else {
-            console.log('retrieving cached image');
+            console.log('Retrieving cached image!');
             res.sendFile(outputPath);
             res.status(302);
           }
